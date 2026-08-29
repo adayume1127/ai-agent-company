@@ -15,9 +15,11 @@
 """
 
 import os
+import time
 import datetime
 import feedparser
 from google import genai
+from google.genai import errors as genai_errors
 
 RSS_FEEDS = [
     "https://news.google.com/rss/search?q=AI+%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ceid=JP:ja",
@@ -46,11 +48,21 @@ def generate_draft(topics: list[str]) -> str:
         + "\n".join(f"- {t}" for t in topics)
     )
 
-    response = client.models.generate_content(
-        model="gemini-flash-latest",
-        contents=prompt,
-    )
-    return response.text
+    last_error = None
+    for attempt in range(5):
+        try:
+            response = client.models.generate_content(
+                model="gemini-flash-lite-latest",
+                contents=prompt,
+            )
+            return response.text
+        except genai_errors.ServerError as e:
+            last_error = e
+            wait_seconds = 30 * (attempt + 1)
+            print(f"サーバー混雑のため失敗(試行{attempt + 1}/5)。{wait_seconds}秒待って再試行します: {e}")
+            time.sleep(wait_seconds)
+
+    raise last_error
 
 
 def main() -> None:
