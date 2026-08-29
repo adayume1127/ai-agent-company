@@ -25,6 +25,8 @@
 - [x] 顧客・ニーズ・付加価値の検証(value-discovery-engineフレームワークで完了)
 - [x] 無課金技術スタックの調査
 - [x] Day1コンテンツ・2週間構成の設計
-- [ ] Gemini API無料枠のAPIキー取得(※これだけは人間の手続きが必要。課金は発生しない無料登録)
-- [ ] GitHub無料アカウントでのリポジトリ作成・Actions有効化
-- [ ] Day1実投稿
+- [x] Gemini API無料枠のAPIキー取得
+- [x] GitHub無料アカウント(adayume1127)でのリポジトリ作成・Actions有効化
+- [x] 日次自動下書き生成パイプラインの動作確認(2026-08-29 初回成功)
+- [ ] Day1実投稿(content/day1-x-post.md の文面をXに手動投稿)
+- [ ] 生成された下書きを毎日 compliance/red-flags-checklist.md でチェックしてから活用
