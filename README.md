@@ -28,5 +28,6 @@
 - [x] Gemini API無料枠のAPIキー取得
 - [x] GitHub無料アカウント(adayume1127)でのリポジトリ作成・Actions有効化
 - [x] 日次自動下書き生成パイプラインの動作確認(2026-08-29 初回成功)
-- [ ] Day1実投稿(content/day1-x-post.md の文面をXに手動投稿)
+- [x] Day1実投稿(2026-08-29、スマートフォンからX投稿完了)
 - [ ] 生成された下書きを毎日 compliance/red-flags-checklist.md でチェックしてから活用
+- [ ] Day2以降、content/2week-calendar.md の構成に沿って運用を継続
